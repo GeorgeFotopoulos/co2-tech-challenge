@@ -4,21 +4,21 @@ A tech challenge designed for candidates, featuring a realistic simulation of Co
 
 ## Preamble
 
-We are welcome you with our co2 emissions tech challenge.
-The solution consist of two Api projects.
+We welcome you with our co2 emissions tech challenge.
+The solution consists of two Api projects.
 
-Measurements Api - provides user's energy consumption in watts at specific time point
+Measurements API - provides user's energy consumption in Watts at a specific time point.
 
-Emissions Api - provides c02 emissions factors in kg per watt during the hour
+Emissions API - provides c02 emissions factors in kg per kWh during the day.
 
-## Api Specifications
+## API Specifications
 
-Our Api works with Unix timestamps (represented by long) number of seconds
+Our API works with Unix timestamps (represented by long) number of seconds
 starts at the Unix Epoch on January 1st, 1970 at UTC.
 
-### Measurements Api
+### Measurements API
 
-We encourage you to get api details from swagger/open api specifications of this Api.
+We encourage you to get API details from Swagger/open API specifications of this API.
 
 #### Supported users' ids
 
@@ -33,48 +33,48 @@ We encourage you to get api details from swagger/open api specifications of this
 
 #### Returned data remark
 
-Api returns data in requested time frame, with resolution from 1 to 10 seconds (depends on user).
+Measurements API returns data in requested time frame, with resolution from 1 to 10 seconds (depends on user).
 
-Api has data up to the now.
+Measurements API has data up to the now.
 
-For an example: You requested data from timestamp 10 to timestamp 30, for user which has 3s resolution data
+For example: You requested data from timestamp 10 to timestamp 30, for user which has 3s resolution data
 you should get values for following timestamps, 12, 15, 18, 21, ... 30.
 
-### Emissions Api
+### Emissions API
 
-We encourage you to get api details from swagger/open api specifications of this Api
+We encourage you to get API details from Swagger/open API specifications of this API.
 
 #### Returned data remark
 
-Api returns data in requested time frame, with 15 minutes resolution.
+API returns data in requested time frame, with 15 minutes resolution.
 
-Api has data slightly ahead (1 day) to the current time.
+API has data slightly ahead (until the end of the day) of the current time.
 
-### Calculator Api
+### Calculator API
 
 We expect you to expose an endpoint which accepts 'user id', 'from' and 'to' timestamps
 and returns single double value - calculated total emission for the user during this timeframe.
 
 #### Usages note
 
-1. Api will **primarily** be used to calculate emission for multiple users **within the same timeframe**.
+1. API will **primarily** be used to calculate emission for multiple users **within the same timeframe**.
 2. Timeframe can be quite long (up to 2 weeks)
 3. TimeFrame is always sometime in the past
 
 ## Task
 
-We expect you to create Api project called Calculator Api.
-Which mainly will consume two other Apis and return total emission for requested user within requested timeframe.
+We expect you to create an API project called Calculator API.
+Which mainly will consume two other APIs and return the total emission for requested user within requested timeframe.
 
 ### Important
 
-**You can change existing projects codebase, but your solution will be tested against original APIs and configs.**
+**You can change existing projects codebase, but your solution will be tested against the original APIs and configs.**
 
 ## Implementation
 
-1. We DO NOT limit you to use 3d-party libraries, especially if they are DeFacto Standard solving some problems.
+1. We DO NOT limit you to use 3rd-party libraries, especially if they are DeFacto Standard solving some problems.
 2. We DO NOT limit you with project structure, architecture design, naming convention
-   (Except reasonable and well know in .NEt)
+   (Except reasonable and well-known in .NET)
 3. We DO encourage you using modern c# and fresh language features!
 
 ## Calculation
@@ -85,36 +85,50 @@ TODO
 
 ### Example
 
-TODO
+E.g. user's measurement data = {
+14:00-14:15 = 0.5 kWh 
+14:15-14:30 = 1 kWh
+14:30-14:45 = 2 kWh 
+14:45-15:00 = 0.5 kWh}
+
+*the measurements API does not return kWh, it returns watts, you should calculate the kWh based on the watts and the timestamps.
+
+emission factor example ={
+14:00-14:15 = 0.3
+14:15-14:30 = 0.1
+14:30-14:45 = 0.2
+14:45-15:00 = 0.2
+}
+
+total emissions = 0.5*0.3 + 1*0.1 + 2*0.2 + 0.5*0.2 = 0.75 kg 
 
 ## Chaos
 
-To make this task more interesting, we added a bit of a chaos to our apis. Enjoy!
+To make this task more interesting, we added a bit of chaos to our APIs. Enjoy!
 
-1. There is a chance that chaos prevents you te get response. (Measurements Api Request has a chance (30%) to fail)
-2. There is a chance that chaos makes you wait longer. (Emissions Api Request has a chance (50%) to be delayed (15s) )
+1. There is a chance that chaos prevents you from getting a response. (Measurements API Request has a chance (30%) to fail)
+2. There is a chance that chaos makes you wait longer. (Emissions API Request has a chance (50%) to be delayed (15s))
 
 ## Technical Challenges
 
 ### 1. Calculation Challenge
 
-Although this calculations can be done different ways, we wanna you to think over more optimal algorithm implementation.
+Although these calculations can be done in many different ways, we want you to think over a more optimal algorithm implementation.
 
 ### 2. Chaos Challenge
 
-As you may have read, we add some 'chaos' to our Apis, but it will be nice if your Implementation can deal with this '
-chaos'
+As you may have read, we add some 'chaos' to our APIs, but it will be nice if your Implementation can deal with this 'chaos'
 
 ### 3. Docker Challenge
 
-Our Apis have Docker files, but they are not working. It will be nice if you fix them, and add everything
-(including you project Dockerfile) to docker-compose
+Our APIs have Docker files, but they are not working. It will be nice if you fix them, and add everything
+(including your project Dockerfile) to docker-compose
 
 ## Results & Review
 
 ### How to send results
 
-We expect to receive link to GitHub repository including current solution with Added Project from the task.
+We expect to receive a link to the GitHub repository including the current solution with the Added Project from the task.
 
 ### Review criteria
 
