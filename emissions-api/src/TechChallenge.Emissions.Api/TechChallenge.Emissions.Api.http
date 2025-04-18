@@ -1,0 +1,4 @@
+@TechChallenge__Emissions__Api_HostAddress = http://localhost:5139
+
+GET {{TechChallenge__Emissions__Api_HostAddress}}/emissions?from=10&to=100000
+Accept: application/json
