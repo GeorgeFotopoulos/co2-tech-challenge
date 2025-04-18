@@ -82,6 +82,7 @@ Which mainly will consume two other APIs and return the total emission for reque
 ### Algorithm
 
 First step is to split the measurements in 15-minute periods and calculate the amount of energy consumption (in kWh) for each period. <br>
+For the calculation of kWh, we assume that the resolution (of measurement data) does not change (for each user) and that we do not have missing data. In this case, the calculation of kWh can be simplified to calculating the average (in watts) for a period, and then divide it by 4 (because we calculate for 15-mins, not for the full hour) to get the Wh, and then divide by 1000 to get the kWh <br>.
 Then you should multiply the kwh with the corresponding co2 factor (based on the timestamp) to get the amount of co2 for each 15-minute period (in Kg). <br>
 The last step is to sum them all together to get the total amount of co2 (in Kg) and return it.
 
