@@ -85,22 +85,21 @@ TODO
 
 ### Example
 
-E.g. user's measurement data = {
-14:00-14:15 = 0.5 kWh 
-14:15-14:30 = 1 kWh
-14:30-14:45 = 2 kWh 
-14:45-15:00 = 0.5 kWh}
+E.g. user's measurement data = { <br>
+14:00-14:15 = 0.5 kWh, <br>
+14:15-14:30 = 1 kWh, <br>
+14:30-14:45 = 2 kWh, <br>
+14:45-15:00 = 0.5 kWh} <br>
 
 *the measurements API does not return kWh, it returns watts, you should calculate the kWh based on the watts and the timestamps.
 
-emission factor example ={
-14:00-14:15 = 0.3
-14:15-14:30 = 0.1
-14:30-14:45 = 0.2
-14:45-15:00 = 0.2
-}
+emission factor example ={ <br>
+14:00-14:15 = 0.3, <br>
+14:15-14:30 = 0.1, <br>
+14:30-14:45 = 0.2, <br>
+14:45-15:00 = 0.2 } <br>
 
-total emissions = 0.5*0.3 + 1*0.1 + 2*0.2 + 0.5*0.2 = 0.75 kg 
+total emissions = 0.5 * 0.3 + 1 * 0.1 + 2 * 0.2 + 0.5 * 0.2 = 0.75 kg 
 
 ## Chaos
 
