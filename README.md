@@ -72,16 +72,18 @@ Which mainly will consume two other APIs and return the total emission for reque
 
 ## Implementation
 
-1. We DO NOT limit you to use 3rd-party libraries, especially if they are DeFacto Standard solving some problems.
+1. We DO NOT limit you to use 3rd-party libraries, especially if they are De Facto Standard solutions to some problems.
 2. We DO NOT limit you with project structure, architecture design, naming convention
    (Except reasonable and well-known in .NET)
-3. We DO encourage you using modern c# and fresh language features!
+3. We DO encourage you to use modern c# and fresh language features!
 
 ## Calculation
 
 ### Algorithm
 
-TODO
+First step is to split the measurements in 15-minute periods and calculate the amount of energy consumption (in kWh) for each period. <br>
+Then you should multiply the kwh with the corresponding co2 factor (based on the timestamp) to get the amount of co2 for each 15-minute period (in Kg). <br>
+The last step is to sum them all together to get the total amount of co2 (in Kg) and return it.
 
 ### Example
 
