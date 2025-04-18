@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+        <PackageReference Include="Swashbuckle.AspNetCore"/>
+        <PackageReference Include="System.Linq.Async"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\shared\src\TechChallenge.ChaosMonkey\TechChallenge.ChaosMonkey.csproj" />
+      <ProjectReference Include="..\..\..\shared\src\TechChallenge.Common\TechChallenge.Common.csproj" />
+      <ProjectReference Include="..\..\..\shared\src\TechChallenge.DataSimulator\TechChallenge.DataSimulator.csproj" />
+    </ItemGroup>
+
+</Project>
