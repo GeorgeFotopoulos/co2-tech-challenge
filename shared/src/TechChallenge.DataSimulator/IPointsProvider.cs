@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TechChallenge.DataSimulator;
 
 public interface IPointsProvider

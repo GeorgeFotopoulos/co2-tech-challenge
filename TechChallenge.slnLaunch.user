@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Calculations API",
+    "Projects": [
+      {
+        "Path": "calculations-api\\src\\TechChallenge.Calculations.Api\\TechChallenge.Calculations.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "measurements-api\\src\\TechChallenge.Measurements.Api\\TechChallenge.Measurements.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "emissions-api\\src\\TechChallenge.Emissions.Api\\TechChallenge.Emissions.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  }
+]

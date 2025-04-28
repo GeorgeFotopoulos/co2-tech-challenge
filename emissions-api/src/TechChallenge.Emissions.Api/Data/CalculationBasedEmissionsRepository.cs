@@ -2,6 +2,10 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using TechChallenge.DataSimulator;
+using Microsoft.Extensions.Logging;
+using System.Threading;
+using System.Collections.Generic;
+using System;
 
 namespace TechChallenge.Emissions.Api.Data;
 

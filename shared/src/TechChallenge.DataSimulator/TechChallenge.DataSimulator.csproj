@@ -6,5 +6,6 @@
 
     <ItemGroup>
       <PackageReference Include="CryptoRandom" />
+      <PackageReference Include="System.Linq.Async" />
     </ItemGroup>
 </Project>

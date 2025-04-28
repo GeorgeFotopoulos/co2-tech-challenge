@@ -7,6 +7,7 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/Dotnet.gitignore
 
+/.vs
 /.idea/.idea.TechChallenge/.idea/vcs.xml
 /.idea/.idea.TechChallenge/.idea/indexLayout.xml
 /.idea/config/applicationhost.config

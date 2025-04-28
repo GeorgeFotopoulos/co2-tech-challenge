@@ -1,3 +1,6 @@
+using System.Threading;
+using System.Collections.Generic;
+
 namespace TechChallenge.Measurements.Api.Data;
 
 public interface IMeasurementsRepository

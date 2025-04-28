@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TechChallenge.DataSimulator;
 
 public abstract class BasePointsProvider(IValueCalculator<SeededContext, double> calculator) : IPointsProvider

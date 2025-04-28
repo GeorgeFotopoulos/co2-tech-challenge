@@ -1,3 +1,6 @@
+using System.Security.Cryptography;
+using System;
+
 namespace TechChallenge.DataSimulator;
 
 public class PointsProvider(

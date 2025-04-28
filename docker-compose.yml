@@ -1,0 +1,53 @@
+﻿services:
+  # Emissions API Service
+  emissions-api:
+    build:
+      context: .
+      dockerfile: emissions-api/src/TechChallenge.Emissions.Api/Dockerfile
+    ports:
+      - "5139:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ChaosMonkey__Percentage=30
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Measurements API Service  
+  measurements-api:
+    build:
+      context: .
+      dockerfile: measurements-api/src/TechChallenge.Measurements.Api/Dockerfile
+    ports:
+      - "5153:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development 
+      - ChaosMonkey__DelayInSeconds=15
+    depends_on:
+      emissions-api:
+        condition: service_healthy
+
+  # Calculations API (Main Service)
+  calculations-api:
+    build:
+      context: .
+      dockerfile: calculations-api/src/TechChallenge.Calculations.Api/Dockerfile
+    ports:
+      - "5171:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Apis__Emissions=http://emissions-api
+      - Apis__Measurements=http://measurements-api
+    depends_on:
+      emissions-api:
+        condition: service_healthy
+      measurements-api:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+
+volumes:
+  app-data:  # Optional for persistent storage

@@ -3,6 +3,10 @@ using System.Security.Cryptography;
 using System.Text;
 using TechChallenge.Common.Exceptions;
 using TechChallenge.DataSimulator;
+using System.Threading;
+using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace TechChallenge.Measurements.Api.Data;
 
